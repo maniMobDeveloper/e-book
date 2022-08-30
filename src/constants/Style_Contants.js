@@ -1,0 +1,3 @@
+const BACKGROUND_COLOR = '#140d3f';
+
+export {BACKGROUND_COLOR};
