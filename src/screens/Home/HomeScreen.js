@@ -83,12 +83,6 @@ const styles = StyleSheet.create({
         backgroundColor:'#fff',
         //paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
     },
-    footer: {
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-      },
 })
 
 export default HomeScreen;
