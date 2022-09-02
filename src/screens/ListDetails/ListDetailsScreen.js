@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { View, Text, SafeAreaView, StatusBar, Image, TouchableOpacity } from 'react-native';
 
 import { POSTS } from '../../constants/API_Constants';
@@ -24,7 +24,7 @@ function ListDetailsScreen({navigation, route}) {
         }  
     }
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         getDetails()
     },[])
 
@@ -49,28 +49,34 @@ function ListDetailsScreen({navigation, route}) {
             }}>
 
                 <TouchableOpacity onPress={()=>navigation.navigate('Home')}
-                style={{height:40,width:'50%'}}>
+                style={{height:40,width:'50%',alignItems:'center',justifyContent:'center'}}>
                 <Image source={require('../../assets/images/header.png')} 
-                style={{height:40,width:'100%'}}></Image>
+                style={{height:30,width:'100%',marginLeft:10}}></Image>
                 </TouchableOpacity>
 
                 <View style={{flexDirection:'row', alignItems:'flex-end',
                 width:'50%',justifyContent:'flex-end'}}>
 
                 {is_FavId ?
-                <TouchableOpacity onPress={()=>changeFavourite()}>
+                <TouchableOpacity onPress={()=>changeFavourite()}
+                style = {{alignItems:'center',justifyContent:'center',height:50,width:'25%'}}>
                 <Image source={require('../../assets/images/aftrFav.png')} 
-                style={{height:30,width:30,margin:10}}></Image>
+                style={{height:25,width:25}}></Image>
                 </TouchableOpacity>
                 :
-                <TouchableOpacity onPress={()=>changeFavourite()}>
+                <TouchableOpacity onPress={()=>changeFavourite()}
+                style = {{alignItems:'center',justifyContent:'center',height:50,width:'25%'}}>
                 <Image source={require('../../assets/images/befFav.png')} 
-                style={{height:30,width:30,margin:10}}></Image>
+                style={{height:25,width:25}}></Image>
                 </TouchableOpacity>
                 }
                
+               <TouchableOpacity 
+                style = {{alignItems:'center',justifyContent:'center',height:50,width:'25%'}}>
                 <Image source={require('../../assets/images/user.png')} 
-                style={{height:30,width:30,margin:10}}></Image>
+                style={{height:25,width:25}}></Image>
+                </TouchableOpacity>
+
                 </View>
         </View>
         <SafeAreaView>

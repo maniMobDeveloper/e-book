@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { View, TouchableOpacity, StatusBar, SafeAreaView, Image, Text, StyleSheet, FlatList } from 'react-native';
 import { POSTS } from '../../constants/API_Constants';
 import { BACKGROUND_COLOR } from '../../constants/Style_Contants';
@@ -27,7 +27,7 @@ function FavouritesScreen({navigation}) {
         }  
     }
 
-    useEffect(()=> {
+    useLayoutEffect(()=> {
         getDetails()
     },[])
 
@@ -47,15 +47,19 @@ function FavouritesScreen({navigation}) {
             backgroundColor:BACKGROUND_COLOR
             }}>
                 <TouchableOpacity onPress={()=>navigation.navigate('Home')}
-                style={{height:40,width:'50%'}}>
+                style={{height:40,width:'50%',alignItems:'center',justifyContent:'center'}}>
                 <Image source={require('../../assets/images/header.png')} 
-                style={{height:40,width:'100%'}}></Image>
+                style={{height:30,width:'100%',marginLeft:10}}></Image>
                 </TouchableOpacity>
                 <View style={{flexDirection:'row', alignItems:'flex-end',
                 width:'50%',justifyContent:'flex-end'}}>
                 
+                <TouchableOpacity 
+                style = {{alignItems:'center',justifyContent:'center',height:50,width:'25%'}}>
                 <Image source={require('../../assets/images/user.png')} 
-                style={{height:30,width:30,margin:10}}></Image>
+                style={{height:25,width:25}}></Image>
+                </TouchableOpacity>
+
                 </View>
         </View>
         
